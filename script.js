@@ -151,3 +151,16 @@ buyNowButton.addEventListener('click', () => {
 
     alert('Thank you for your purchase!');
 });
+
+function apply(){
+    let code = document.querySelector('.code').value;
+    if(code!='ostad5' && code!='ostad10'){
+        alert('Wrong Code! Please enter valid code');
+        document.querySelector('.code').value = '';
+        return;
+    }else{
+        let discount = document.querySelector('discount-price');
+        let total = document.querySelector('.total-price').value;
+        console.log(total);
+    }
+}
