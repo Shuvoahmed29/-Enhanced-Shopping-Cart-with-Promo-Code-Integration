@@ -88,6 +88,7 @@ const addToCart = (productBox) => {
         cartBox.remove();
         updateTotalPrice();
         updateCartCount(-1);
+
     });
 
     cartBox.querySelector('.cart-quantity').addEventListener('click', event => {
@@ -102,10 +103,12 @@ const addToCart = (productBox) => {
 
         numberElement.textContent = quantity;
         updateTotalPrice();
+
     });
 
     updateCartCount(1);
     updateTotalPrice();
+
 };
 
 const updateTotalPrice = () => {
@@ -183,7 +186,7 @@ function apply(){
             discount.textContent = `${dis5.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
 
             finalPrice.textContent = `${(total-dis5).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
-            
+
             document.querySelector('.code').value = '';
         }
     }
