@@ -154,6 +154,7 @@ buyNowButton.addEventListener('click', () => {
 
 function apply(){
     let discount = document.querySelector('.discount-price');
+    let finalPrice = document.querySelector('.final-price');
     let code = document.querySelector('.code').value;
     if(discount.textContent!='0 Taka'){
         alert('Already take the discount offer!');
@@ -173,10 +174,16 @@ function apply(){
         if(code=='ostad5'){
             let dis5 = (5*total)/100;
             discount.textContent = `${dis5.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
+
+            finalPrice.textContent = `${(total-dis5).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
+
             document.querySelector('.code').value = '';
         }else{
             let dis5 = (10*total)/100;
             discount.textContent = `${dis5.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
+
+            finalPrice.textContent = `${(total-dis5).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
+            
             document.querySelector('.code').value = '';
         }
     }
