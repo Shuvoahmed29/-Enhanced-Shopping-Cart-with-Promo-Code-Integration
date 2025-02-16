@@ -153,14 +153,31 @@ buyNowButton.addEventListener('click', () => {
 });
 
 function apply(){
+    let discount = document.querySelector('.discount-price');
     let code = document.querySelector('.code').value;
+    if(discount.textContent!='0 Taka'){
+        alert('Already take the discount offer!');
+        document.querySelector('.code').value = '';
+        return;
+    }
+
+    
     if(code!='ostad5' && code!='ostad10'){
         alert('Wrong Code! Please enter valid code');
         document.querySelector('.code').value = '';
         return;
     }else{
-        let discount = document.querySelector('discount-price');
-        let total = document.querySelector('.total-price').value;
-        console.log(total);
+        let total = document.querySelector('.total-price').innerText;
+        total = parseFloat(total.replace('Taka', '').replace(/,/g, '').trim());
+        
+        if(code=='ostad5'){
+            let dis5 = (5*total)/100;
+            discount.textContent = `${dis5.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
+            document.querySelector('.code').value = '';
+        }else{
+            let dis5 = (10*total)/100;
+            discount.textContent = `${dis5.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Taka`;
+            document.querySelector('.code').value = '';
+        }
     }
 }
